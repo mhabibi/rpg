@@ -3,7 +3,7 @@ namespace Tests\Unit\Console\Commands;
 
 use App\Entities\CharacterInterface;
 use App\Interactive\InteractiveCharacterInterface;
-use App\Interactive\InteractivePlayInterface;
+use App\Interactive\InteractiveGameInterface;
 use Symfony\Component\Console\Style\StyleInterface;
 use TestCase;
 use App\Console\Commands\Play;
@@ -15,13 +15,13 @@ class PlayTest extends TestCase
         $characterMock            = $this->createMock(CharacterInterface::class);
         $interactiveCharacterMock = $this->createMock(InteractiveCharacterInterface::class);
         $interactiveCharacterMock->expects($this->once())->method('get')->willReturn($characterMock);
-        $interactivePlayMock = $this->createMock(InteractivePlayInterface::class);
-        $interactivePlayMock->expects($this->once())->method('play')->with($characterMock);
+        $interactiveGameMock = $this->createMock(InteractiveGameInterface::class);
+        $interactiveGameMock->expects($this->once())->method('play')->with($characterMock);
         $outputMock = $this->createMock(StyleInterface::class);
         $outputMock->method('note');
 
         $playCommand = new Play();
         $playCommand->setOutputFormatter($outputMock);
-        $playCommand->handle($interactiveCharacterMock, $interactivePlayMock);
+        $playCommand->handle($interactiveCharacterMock, $interactiveGameMock);
     }
 }

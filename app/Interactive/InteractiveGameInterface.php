@@ -5,16 +5,16 @@ use App\Entities\CharacterInterface;
 use Symfony\Component\Console\Style\StyleInterface;
 
 /**
- * Class InteractivePlayInterface
+ * Class InteractiveGameInterface
  *
  * @package App\Interactive
  */
-interface InteractivePlayInterface
+interface InteractiveGameInterface
 {
     /**
      * @param StyleInterface $output
      *
-     * @return InteractivePlayInterface
+     * @return InteractiveGameInterface
      */
     public function setOutput(StyleInterface $output);
 

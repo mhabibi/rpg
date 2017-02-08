@@ -1,9 +1,10 @@
 <?php
+declare(strict_types = 1);
 
 namespace App\Console\Commands;
 
 use App\Interactive\InteractiveCharacterInterface;
-use App\Interactive\InteractivePlayInterface;
+use App\Interactive\InteractiveGameInterface;
 use Illuminate\Console\Command;
 
 /**
@@ -21,11 +22,11 @@ class Play extends Command
 
     /**
      * @param InteractiveCharacterInterface $interactiveCharacter
-     * @param InteractivePlayInterface      $interactivePlay
+     * @param InteractiveGameInterface      $interactivePlay
      */
     public function handle(
         InteractiveCharacterInterface $interactiveCharacter,
-        InteractivePlayInterface $interactivePlay
+        InteractiveGameInterface $interactivePlay
     ) {
         $this->getOutputFormatter()->note('Watch your steps! There is no way to come back.');
         $interactiveCharacter->setOutput($this->getOutputFormatter());
