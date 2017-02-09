@@ -12,9 +12,10 @@ use Symfony\Component\Console\Style\StyleInterface;
 interface InteractiveCharacterInterface
 {
     /**
-     * @return CharacterInterface
+     * @return CharacterInterface|null
+     * TODO refactor after php 7.1 tp get(): ?CharacterInterface
      */
-    public function get(): CharacterInterface;
+    public function get();
 
     /**
      * @param StyleInterface $output
