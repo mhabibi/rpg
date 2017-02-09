@@ -15,28 +15,33 @@ use Illuminate\Support\Facades\DB;
 class DbStateRepository implements StateRepositoryInterface
 {
     /**
-     * @param $title
-     *
-     * @return StateInterface
-     * TODO remove this method and use getById when output is refactored. States should be fetched by Id
+     * {@inheritdoc}
      */
-    public function getByTitle($title): StateInterface
+    public function getByTitle($title)
     {
-        return StateModel::query()->where('title', $title)->first()->toEntity();
+        $model = StateModel::query()->where('title', $title)->first();
+        if ($model) {
+            return $model->toEntity();
+        }
+
+        return null;
     }
 
     /**
-     * @param int $id
-     *
-     * @return StateInterface
+     * {@inheritdoc}
      */
-    public function getById(int $id): StateInterface
+    public function getById(int $id)
     {
-        return StateModel::query()->where('id', $id)->first()->toEntity();
+        $model = StateModel::query()->where('id', $id)->first();
+        if ($model) {
+            return $model->toEntity();
+        }
+
+        return null;
     }
 
     /**
-     * @return StateInterface
+     * {@inheritdoc}
      */
     public function getTheFirstState(): StateInterface
     {

@@ -37,11 +37,23 @@ class DbStateRepositoryTest extends TestCase
         $this->assertEquals('a_state_title', $entity->getTitle());
     }
 
+    public function testGetByTitleNotFound()
+    {
+        $entity = $this->stateRepo->getByTitle('wrong_title');
+        $this->assertEquals(null, $entity);
+    }
+
     public function testGetById()
     {
         $insertedState = factory(StateModel::class)->create(['title' => 'a_state_title']);
         $entity        = $this->stateRepo->getById($insertedState['id']);
         $this->assertEquals('a_state_title', $entity->getTitle());
+    }
+
+    public function testGetByIdNotFound()
+    {
+        $entity = $this->stateRepo->getById(0);
+        $this->assertEquals(null, $entity);
     }
 
     public function testGetTheFirstState()

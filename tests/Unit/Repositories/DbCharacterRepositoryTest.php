@@ -45,7 +45,7 @@ class DbCharacterRepositoryTest extends TestCase
 
     public function testGetByNameNotFound()
     {
-        $entity = $this->characterRepo->getByName('a_name');
+        $entity = $this->characterRepo->getByName('wrong_name');
         $this->assertEquals(null, $entity);
     }
 
