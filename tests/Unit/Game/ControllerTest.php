@@ -8,6 +8,9 @@ use App\Repositories\CharacterRepositoryInterface;
 use App\Repositories\StateRepositoryInterface;
 use TestCase;
 
+/**
+ * @covers \App\Game\Controller
+ */
 class ControllerTest extends TestCase
 {
     public function testCurrentStateForNewCharacters()

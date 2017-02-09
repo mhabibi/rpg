@@ -8,6 +8,9 @@ use Symfony\Component\Console\Style\StyleInterface;
 use TestCase;
 use App\Console\Commands\Play;
 
+/**
+ * @covers \App\Console\Commands\Play
+ */
 class PlayTest extends TestCase
 {
     public function testHandle()
