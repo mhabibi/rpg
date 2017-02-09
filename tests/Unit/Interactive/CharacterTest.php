@@ -10,6 +10,7 @@ use TestCase;
 
 /**
  * @covers \App\Interactive\Character
+ * @covers \App\Interactive\InteractiveAbstract
  */
 class CharacterTest extends TestCase
 {

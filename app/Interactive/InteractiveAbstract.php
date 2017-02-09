@@ -10,7 +10,7 @@ use Symfony\Component\Console\Style\StyleInterface;
  *
  * @package App\Interactive
  */
-class InteractiveAbstract
+abstract class InteractiveAbstract
 {
     /**
      * @var StyleInterface

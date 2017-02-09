@@ -5,7 +5,7 @@ use App\Entities\CharacterInterface;
 use Symfony\Component\Console\Style\StyleInterface;
 
 /**
- * Class InteractiveCharacterInterface
+ * Interface InteractiveCharacterInterface
  *
  * @package App\Interactive
  */

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 namespace App\Http\Controllers;
 
@@ -52,13 +53,5 @@ class BaseController extends Controller
     protected function created(): Response
     {
         return new Response(null, Response::HTTP_CREATED);
-    }
-
-    /**
-     * @return Response
-     */
-    protected function serverError(): Response
-    {
-        return new Response(null, Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 }

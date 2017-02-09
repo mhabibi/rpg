@@ -16,7 +16,6 @@ class DbCharacterRepository implements CharacterRepositoryInterface
 {
     /**
      * {@inheritdoc}
-     * TODO refactor after php 7.1 to getByName(string $name): ?CharacterInterface
      */
     public function getByName(string $name)
     {

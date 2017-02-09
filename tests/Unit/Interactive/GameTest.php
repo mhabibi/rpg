@@ -12,6 +12,7 @@ use TestCase;
 
 /**
  * @covers \App\Interactive\Game
+ * @covers \App\Interactive\InteractiveAbstract
  */
 class GameTest extends TestCase
 {

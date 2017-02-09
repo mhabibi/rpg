@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 /**
  * @covers \App\Http\Controllers\CharacterController
+ * @covers \App\Http\Controllers\BaseController
  */
 class CharacterControllerTest extends TestCase
 {
@@ -21,18 +22,15 @@ class CharacterControllerTest extends TestCase
                 'payload' => [
                     'name' => 123,
                 ],
-                'status'  => Response::HTTP_UNPROCESSABLE_ENTITY,
             ],
             'name is null'        => [
                 'payload' => [
                     'name' => null,
                 ],
-                'status'  => Response::HTTP_UNPROCESSABLE_ENTITY,
             ],
             'name does not exist' => [
                 'payload' => [
                 ],
-                'status'  => Response::HTTP_UNPROCESSABLE_ENTITY,
             ],
         ];
     }
@@ -41,7 +39,7 @@ class CharacterControllerTest extends TestCase
      * @dataProvider postValidationFailProvider
      * @expectedException \Illuminate\Validation\ValidationException
      */
-    public function testPostValidationFail($payload, $status)
+    public function testPostValidationFail($payload)
     {
         $gameControllerMock = $this->createMock(ControllerInterface::class);
 

@@ -1,4 +1,6 @@
 <?php
+declare(strict_types = 1);
+
 namespace App\Models;
 
 use App\Entities\State;
@@ -6,7 +8,9 @@ use App\Entities\StateInterface;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class State
+ * Class StateModel
+ *
+ * @package App\Models
  */
 class StateModel extends Model
 {
@@ -21,6 +25,9 @@ class StateModel extends Model
         return $this->belongsToMany('App\Models\StateModel', 'options', 'parent', 'child');
     }
 
+    /**
+     * @return StateInterface
+     */
     public function toEntity(): StateInterface
     {
         $options = [];
@@ -32,7 +39,7 @@ class StateModel extends Model
             $this->getAttribute('id'),
             $this->getAttribute('title'),
             $this->getAttribute('description'),
-            $this->getAttribute('cost'),
+            (int)$this->getAttribute('cost'),
             $options
         );
     }

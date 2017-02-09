@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Game\Controller as GameController;
+use App\Game\ControllerInterface;
 use App\Repositories\CharacterRepositoryInterface;
 use App\Repositories\StateRepositoryInterface;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ use Illuminate\Http\Request;
 class PlayController extends BaseController
 {
     /**
-     * @var GameController
+     * @var ControllerInterface
      */
     protected $gameController;
 
@@ -30,14 +31,12 @@ class PlayController extends BaseController
     protected $characterRepository;
 
     /**
-     * Controller constructor.
-     *
-     * @param GameController               $gameController
+     * @param ControllerInterface          $gameController
      * @param StateRepositoryInterface     $stateRepository
      * @param CharacterRepositoryInterface $characterRepository
      */
     public function __construct(
-        GameController $gameController,
+        ControllerInterface $gameController,
         StateRepositoryInterface $stateRepository,
         CharacterRepositoryInterface $characterRepository
     ) {
@@ -46,6 +45,11 @@ class PlayController extends BaseController
         $this->characterRepository = $characterRepository;
     }
 
+    /**
+     * @param string $name
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function get(string $name)
     {
         $character = $this->characterRepository->getByName($name);
@@ -71,9 +75,14 @@ class PlayController extends BaseController
         );
     }
 
+    /**
+     * @param Request $request
+     * @param string  $name
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function put(Request $request, string $name)
     {
-
         $this->validate($request, ['id' => ['required', 'integer']]);
 
         $character = $this->characterRepository->getByName($name);
@@ -91,10 +100,8 @@ class PlayController extends BaseController
             return $this->badRequest();
         }
 
-        if ($this->gameController->move($character, $nextState)) {
-            return $this->get($character->getName());
-        }
+        $this->gameController->move($character, $nextState);
 
-        return $this->serverError();
+        return $this->get($character->getName());
     }
 }

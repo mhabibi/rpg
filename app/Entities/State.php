@@ -3,6 +3,11 @@ declare(strict_types = 1);
 
 namespace App\Entities;
 
+/**
+ * Class State
+ *
+ * @package App\Entities
+ */
 class State implements StateInterface
 {
     /**
@@ -47,7 +52,7 @@ class State implements StateInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getId(): int
     {
@@ -55,7 +60,7 @@ class State implements StateInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getTitle(): string
     {
@@ -63,7 +68,7 @@ class State implements StateInterface
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getDescription(): string
     {
@@ -71,7 +76,7 @@ class State implements StateInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getCost(): int
     {
@@ -79,7 +84,7 @@ class State implements StateInterface
     }
 
     /**
-     * @return array|null
+     * {@inheritdoc}
      */
     public function getOptions()
     {

@@ -2,7 +2,9 @@
 namespace App\Entities;
 
 /**
+ * Interface CharacterInterface
  *
+ * @package App\Entities
  */
 interface CharacterInterface
 {
@@ -34,5 +36,10 @@ interface CharacterInterface
      */
     public function setState(StateInterface $state): CharacterInterface;
 
+    /**
+     * @param int $stock
+     *
+     * @return CharacterInterface
+     */
     public function setStock(int $stock): CharacterInterface;
 }

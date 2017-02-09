@@ -1,4 +1,6 @@
 <?php
+declare(strict_types = 1);
+
 namespace App\Models;
 
 use App\Entities\Character;
@@ -6,7 +8,9 @@ use App\Entities\CharacterInterface;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Character
+ * Class CharacterModel
+ *
+ * @package App\Models
  */
 class CharacterModel extends Model
 {
@@ -19,12 +23,15 @@ class CharacterModel extends Model
         return $this->belongsTo('App\Models\StateModel');
     }
 
+    /**
+     * @return CharacterInterface
+     */
     public function toEntity(): CharacterInterface
     {
         return new Character(
             $this->getAttribute('id'),
             $this->getAttribute('name'),
-            $this->getAttribute('stock') ?: 0,
+            (int)$this->getAttribute('stock') ?: 0,
             $this->state ? $this->state->toEntity() : null
         );
     }

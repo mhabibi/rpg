@@ -11,6 +11,11 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->version();
-});
+$app->group(
+    ['prefix' => 'v1'],
+    function () use ($app) {
+        $app->post('/character', 'CharacterController@post');
+        $app->get('/{name}', 'PlayController@get');
+        $app->put('/{name}', 'PlayController@put');
+    }
+);

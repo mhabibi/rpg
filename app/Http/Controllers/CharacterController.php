@@ -38,6 +38,11 @@ class CharacterController extends BaseController
         $this->characterRepository = $characterRepository;
     }
 
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function post(Request $request)
     {
         $this->validate($request, ['name' => ['required', 'string']]);
@@ -46,10 +51,8 @@ class CharacterController extends BaseController
             return $this->notAcceptable();
         }
 
-        if ($this->characterRepository->create($name)) {
-            return $this->created();
-        }
+        $this->characterRepository->create($name);
 
-        return $this->serverError();
+        return $this->created();
     }
 }

@@ -1,6 +1,11 @@
 <?php
 namespace App\Entities;
 
+/**
+ * Interface StateInterface
+ *
+ * @package App\Entities
+ */
 interface StateInterface
 {
     /**

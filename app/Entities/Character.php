@@ -3,6 +3,11 @@ declare(strict_types = 1);
 
 namespace App\Entities;
 
+/**
+ * Class Character
+ *
+ * @package App\Entities
+ */
 class Character implements CharacterInterface
 {
     /**
@@ -38,13 +43,16 @@ class Character implements CharacterInterface
         $this->state = $state;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function getName(): string
     {
@@ -52,7 +60,7 @@ class Character implements CharacterInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getStock(): int
     {
@@ -60,7 +68,7 @@ class Character implements CharacterInterface
     }
 
     /**
-     * @return StateInterface
+     * {@inheritdoc}
      */
     public function getState()
     {
@@ -68,9 +76,7 @@ class Character implements CharacterInterface
     }
 
     /**
-     * @param StateInterface $state
-     *
-     * @return CharacterInterface
+     * {@inheritdoc}
      */
     public function setState(StateInterface $state): CharacterInterface
     {
@@ -79,6 +85,9 @@ class Character implements CharacterInterface
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function setStock(int $stock): CharacterInterface
     {
         $this->stock = $stock;
