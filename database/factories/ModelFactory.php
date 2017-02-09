@@ -11,9 +11,23 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-    ];
-});
+$factory->define(
+    \App\Models\CharacterModel::class,
+    function (Faker\Generator $faker) {
+        return [
+            'name'  => $faker->name,
+            'stock' => $faker->randomNumber(),
+        ];
+    }
+);
+
+$factory->define(
+    \App\Models\StateModel::class,
+    function (Faker\Generator $faker) {
+        return [
+            'title'       => $faker->title,
+            'description' => $faker->text,
+            'cost'        => $faker->randomNumber(),
+        ];
+    }
+);
