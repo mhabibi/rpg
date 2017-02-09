@@ -15,9 +15,7 @@ use App\Models\CharacterModel;
 class DbCharacterRepository implements CharacterRepositoryInterface
 {
     /**
-     * @param string $name
-     *
-     * @return CharacterInterface|null
+     * {@inheritdoc}
      * TODO refactor after php 7.1 to getByName(string $name): ?CharacterInterface
      */
     public function getByName(string $name)
@@ -31,9 +29,7 @@ class DbCharacterRepository implements CharacterRepositoryInterface
     }
 
     /**
-     * @param string $name
-     *
-     * @return CharacterInterface
+     * {@inheritdoc}
      */
     public function create(string $name): CharacterInterface
     {
@@ -45,10 +41,7 @@ class DbCharacterRepository implements CharacterRepositoryInterface
     }
 
     /**
-     * @param CharacterInterface $character
-     * @param StateInterface     $state
-     *
-     * @return CharacterInterface
+     * {@inheritdoc}
      */
     public function setState(CharacterInterface $character, StateInterface $state): CharacterInterface
     {
@@ -61,10 +54,7 @@ class DbCharacterRepository implements CharacterRepositoryInterface
     }
 
     /**
-     * @param CharacterInterface $character
-     * @param int                $stock
-     *
-     * @return CharacterInterface
+     * {@inheritdoc}
      */
     public function updateStock(CharacterInterface $character, int $stock): CharacterInterface
     {
