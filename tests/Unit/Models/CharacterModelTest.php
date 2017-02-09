@@ -8,6 +8,7 @@ use Laravel\Lumen\Testing\DatabaseTransactions;
 
 /**
  * @covers \App\Models\CharacterModel
+ * @covers \App\Entities\Character
  */
 class CharacterModelTest extends TestCase
 {
@@ -27,6 +28,7 @@ class CharacterModelTest extends TestCase
         $characterEntity = $characterModel->toEntity();
         $this->assertEquals('a_name', $characterEntity->getName());
         $this->assertEquals(123, $characterEntity->getStock());
+        $this->assertEquals($characterModel['id'], $characterEntity->getId());
         $this->assertEquals($insertedState->toEntity(), $characterEntity->getState());
     }
 }

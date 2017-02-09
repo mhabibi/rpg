@@ -7,6 +7,7 @@ use Laravel\Lumen\Testing\DatabaseTransactions;
 
 /**
  * @covers \App\Models\StateModel
+ * @covers \App\Entities\State
  */
 class StateModelTest extends TestCase
 {
@@ -18,11 +19,15 @@ class StateModelTest extends TestCase
             [
                 'title'       => 'a_title',
                 'description' => 'description',
+                'cost'        => 10,
             ]
         );
 
         $stateEntity = $stateModel->toEntity();
         $this->assertEquals('a_title', $stateEntity->getTitle());
         $this->assertEquals('description', $stateEntity->getDescription());
+        $this->assertEquals(10, $stateEntity->getCost());
+        $this->assertEquals($stateModel['id'], $stateEntity->getId());
+        $this->assertEmpty($stateEntity->getOptions());
     }
 }
