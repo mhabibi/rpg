@@ -77,8 +77,8 @@ One day in the beach you see a very beautiful girl which is really different wit
         ],
         12 => [
             'title'       => 'Thailand',
-            'description' => 'You arrive in Bangkok and you don\'t know where to go. You walk into a bar to have some drink. After one hour a very beautiful girl who you can guess what is her job starts talking with you.
-When you are totally drunk she offers you to take you to her home for a rest. You accept and half an hour later you and her are in her sleeping room. But there is a problem, she is not a girl as you expected! She\'s a tranny and now it\'s too late to escape.
+            'description' => 'You arrive in Bangkok and you don\'t know where to go. You walk into a bar to drink. After one hour a very beautiful girl starts talking with you.
+When you are totally drunk she offers you to take you to her home for a rest. You accept and half an hour later you and her are in her sleeping room. But there is a problem, she is not a girl as you expected! And now it\'s too late to escape.
 After two years from that night you find out that you are HIV positive. You know this can kill you after a few years, so...',
             'cost'        => 0,
             'options'     => [10],
