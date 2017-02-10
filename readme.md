@@ -1,21 +1,93 @@
-# Lumen PHP Framework
+# Text-based RPG game
+It is a text-based role-playing game that provides a command-line interface and an RESTful API to play.
+Firstly, you should create a new character, a character is identified with a name which is unique.
+After that, you enter the game and start playing. In each section of the game, you are given a some options to choose.
+When you choose an option, you enter the next section of the story.
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+In each state, you can collect or lose GOLD coins. Number of coins is shown to you in each state.
+When you move forward from one state to another, your status is automatically saved.
+ 
+### How to play in command line
+After setting up the application, run `php artisan play`, you will be asked if you continue the game you enter
+as a new character.
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+If you just press Enter you will be asked for your unique name and your current status will be shown to you.
 
-## Official Documentation
+in each state, if you have some options to continue the story, a list will be shown with some options, to select
+one of them, type the number in front of the title which is printed inside [] and then press Enter.
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+In any state, press `Ctrl+C` to save the game and exit.
 
-## Security Vulnerabilities
+### How to play via webservice API
+In project root directory run `php -S localhost:8000 -t public` to start the web server.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+First, create a user, sample HTTP request:
+```
+curl -X POST -H "Content-Type: application/json" -d '{"name":"your_name_here"}' "http://localhost:8000/v1/character"
+```
+Response codes:
+- 201 created
+- 406 name already exists
+- 422 validation error
+
+Get the current status for a character:
+```
+curl -X GET -H "Content-Type: application/json" "http://localhost:8000/v1/your_name_here"
+```
+If it can not find the name you will get a 404 status code. Otherwise 200 and a response json body.
+
+Response body sample:
+```
+{"character":"your_name_here","stock":0,"title":"current status title","description":"description","options":{"2":"next state title"}}
+```
+Notice the `options` field. You should select one id(shown on the left of each option) and send it with the next request
+
+
+Move:
+```
+curl -X PUT -H "Content-Type: application/json" -d '{"id":2}' "http://localhost:8000/v1/your_name_here"
+```
+2 here is selected option id. If you have moved successfully, you will get 200 status code and a body an newly 
+updated status of the character.
+
+Other response codes:
+- 404 name not found
+- 400 selected id is wrong
+
+# Requirements
+- PHP >= 7
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Mbstring PHP Extension
+- SQLite (sqlite3 and libsqlite3-dev)
+- SQLite3 PHP Extension(php7.0-sqlite3)
+- Memcached
+- Memcached PHP Extension(php-memcached)
+
+# Install
+- Create a DB: `touch /path/to/database.sqlite`
+- Set ENV variables:
+```
+DB_CONNECTION=sqlite
+DB_DATABASE=/path/to/database.sqlite
+```
+- Run seeders: `php artisan db:seed`
+_ Install packages: `composer install`
+
+## Test
+```
+phpunit
+```
+
+
+## It can be improved by
+- Using docker, in order to build faster on any device get rid of long install process
+- Using swagger to document the Http API
+- An API to develop the story or stories
+- Adding more stories instead of just one story(can be also used as different sections of one story).
+- Adding more properties rather than just one(GOLD)
+- Adding different classes for characters with different properties, such as spirit, health, etc.
 
 ## License
 
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+This is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
