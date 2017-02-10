@@ -31,8 +31,10 @@ class Play extends Command
         $this->getOutputFormatter()->note('Watch your steps! There is no way to come back.');
         $interactiveCharacter->setOutput($this->getOutputFormatter());
         $character = $interactiveCharacter->get();
-        $interactivePlay->setOutput($this->getOutputFormatter());
-        $interactivePlay->play($character);
+        if ($character) {
+            $interactivePlay->setOutput($this->getOutputFormatter());
+            $interactivePlay->play($character);
+        }
     }
 
     /**
