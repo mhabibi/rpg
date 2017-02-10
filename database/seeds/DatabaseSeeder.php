@@ -39,7 +39,7 @@ Choose one option: ',
         ],
         6  => [
             'title'       => 'East Europe (ticket: 100 GOLD)',
-            'description' => 'You have settled in Lithuania! ',
+            'description' => 'You intend to stay in Lithuania, it is supposedly very calm. But you find out that the cost living there is much higher than you thought. The only other place you can go right now os Latvia. So you pack and hit the road for about 250km to reach Riga.',
             'cost'        => -100,
             'options'     => [16],
         ],
@@ -78,7 +78,7 @@ One day in the beach you see a very beautiful girl which is really different wit
         12 => [
             'title'       => 'Thailand',
             'description' => 'You arrive in Bangkok and you don\'t know where to go. You walk into a bar to drink. After one hour a very beautiful girl starts talking with you.
-When you are totally drunk she offers you to take you to her home for a rest. You accept and half an hour later you and her are in her sleeping room. But there is a problem, she is not a girl as you expected! And now it\'s too late to escape.
+When you are totally drunk she offers you to take you to her home for a rest. You accept and half an hour later you and her are in her sleeping room. But it turns out that she is not a girl as you expected! And now it\'s too late to escape.
 After two years from that night you find out that you are HIV positive. You know this can kill you after a few years, so...',
             'cost'        => 0,
             'options'     => [10],
@@ -104,9 +104,10 @@ While you are driving, another bike crashes to yours and you lose the control an
         ],
         16 => [
             'title'       => 'East Europe (ticket: 100 GOLD)',
-            'description' => 'This story is not completed...',
+            'description' => 'It is nice to be in Riga, Latvia, the place you have been living for almost 2 months. But there is a problem, it is winter and it\'s really cold and you cannot stand long winter.
+So you decide to leave Latvia and go to Southeast Asia and feel warm. So you have to choose between Thailand or Vietnam. Due to visa problems you cannot go anywhere else.',
             'cost'        => 0,
-            'options'     => [],
+            'options'     => [11, 12],
         ],
     ];
 
