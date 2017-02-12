@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruleset name="OMS-HOMER PHPCS">
+<ruleset name="RPG PHPCS">
     <description>Coding Standard rules for RPG</description>
     <rule ref="PSR2"/>
 

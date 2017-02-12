@@ -11,12 +11,12 @@ When you move forward from one state to another, your status is automatically sa
 After setting up the application, run `php artisan play`, you will be asked if you continue the game you enter
 as a new character.
 
-If you just press Enter you will be asked for your unique name and your current status will be shown to you.
+If you just press Enter you will be asked for your unique name and the fist step of the game will be shown to you.
 
-in each state, if you have some options to continue the story, a list will be shown with some options, to select
+in each state, if you have some options to continue the story, a list will be shown, to select
 one of them, type the number in front of the title which is printed inside [] and then press Enter.
 
-In any state, press `Ctrl+C` to save the game and exit.
+In any states, press `Ctrl+C` to save the game and exit.
 
 ### How to play via webservice API
 In project root directory run `php -S localhost:8000 -t public` to start the web server.
