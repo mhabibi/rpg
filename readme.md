@@ -83,6 +83,7 @@ phpunit
 ## It can be improved by
 - Using docker, in order to build faster on any device get rid of long install process
 - Using swagger to document the Http API
+- A functional test for API and command line interface
 - An API to develop the story or stories
 - Adding more stories instead of just one story(can be also used as different sections of one story).
 - Adding more properties rather than just one(GOLD)
