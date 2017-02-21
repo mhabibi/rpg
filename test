@@ -3,5 +3,5 @@
 vendor/bin/phpcs app/
 vendor/bin/phpmd app/ text phpmd.xml
 vendor/bin/phpcpd app/
-vendor/bin/phpunit
+vendor/bin/phpunit -v
 
