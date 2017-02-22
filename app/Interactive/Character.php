@@ -49,7 +49,14 @@ class Character extends InteractiveAbstract implements InteractiveCharacterInter
         }
 
         $this->output->text('Hmm, OK then, you\'ll create a new character.');
-        $name      = $this->output->ask('What would you like to be called? :');
+        $name = $this->output->ask('What would you like to be called? :');
+
+        if ($this->characterRepository->getByName($name)) {
+            $this->output->note('This name already exist, please choose another one');
+
+            return null;
+        }
+
         $character = $this->characterRepository->create($name);
         $this->output->text('Welcome '.$character->getName().'. Enjoy your journey!');
 
