@@ -17,7 +17,7 @@ class DbStateRepository implements StateRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function getByTitle($title)
+    public function getByTitle(string $title)
     {
         $model = StateModel::query()->where('title', $title)->first();
         if ($model) {
