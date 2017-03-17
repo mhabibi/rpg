@@ -1,20 +1,16 @@
 # Text-based RPG game
 It is a text-based role-playing game that provides a command-line interface and an RESTful API to play.
 Firstly, you should create a new character, a character is identified with a name which is unique.
-After that, you enter the game and start playing. In each section of the game, you are given a some options to choose.
+After that, you enter the game and start playing. In each section of the game, you are given a number of options to choose.
 When you choose an option, you enter the next section of the story.
 
 In each state, you can collect or lose GOLD coins. Number of coins is shown to you in each state.
 When you move forward from one state to another, your status is automatically saved.
  
 ### How to play in command line
-After setting up the application, run `php artisan play`, you will be asked if you continue the game you enter
-as a new character.
+After setting up the application, run `php artisan play`, you will be asked if you continue the game or you enter as a new character. For the first time enter "no" and then enter your unique name. After that the fist step of the game will be shown to you.
 
-If you just press Enter you will be asked for your unique name and the fist step of the game will be shown to you.
-
-in each state, if you have some options to continue the story, a list will be shown, to select
-one of them, type the number in front of the title which is printed inside [] and then press Enter.
+in each state, if you have some options to continue the story, a list will be shown, to select one of them, type the number in front of the title which is printed inside [] and then press Enter.
 
 In any states, press `Ctrl+C` to save the game and exit.
 
@@ -81,7 +77,7 @@ phpunit
 
 
 ## It can be improved by
-- Using docker, in order to build faster on any device get rid of long install process
+- Using docker in order to build faster on any devices and get rid of long install processes
 - Using swagger to document the Http API
 - A functional test for API and command line interface
 - An API to develop the story or stories
