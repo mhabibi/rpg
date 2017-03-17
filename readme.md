@@ -1,6 +1,6 @@
 # Text-based RPG game
 It is a text-based role-playing game that provides a command-line interface and a RESTful API to play.
-Firstly, you should create a new character, a character is identified with a name which is unique.
+Firstly, you should create a new character, a character is identified by a unique name.
 After that, you enter the game and start playing. In each section of the game, you are given a number of options to choose.
 When you choose an option, you enter the next section of the story.
 
