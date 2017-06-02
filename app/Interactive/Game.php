@@ -72,9 +72,8 @@ class Game extends InteractiveAbstract implements InteractiveGameInterface
      * @param StateInterface $state
      *
      * @return StateInterface|null
-     * TODO refactor after php 7.1 to getNextState(StateInterface $state): ?StateInterface
      */
-    protected function getNextState(StateInterface $state)
+    protected function getNextState(StateInterface $state): ?StateInterface
     {
         if (!$state->getOptions()) {
             $this->output->success('You\'ve reached the end.');

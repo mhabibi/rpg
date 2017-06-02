@@ -52,10 +52,12 @@ class CharacterControllerTest extends TestCase
 
     public function testPostNameAlreadyExists()
     {
+	$characterMock = $this->createMock(CharacterInterface::class);
+
         $gameControllerMock = $this->createMock(ControllerInterface::class);
 
         $characterRepoMock = $this->createMock(CharacterRepositoryInterface::class);
-        $characterRepoMock->expects($this->once())->method('getByName')->with('a_name')->willReturn(true);
+        $characterRepoMock->expects($this->once())->method('getByName')->with('a_name')->willReturn($characterMock);
 
         $request = Request::create('', 'POST', ['name' => 'a_name']);
 
@@ -71,7 +73,7 @@ class CharacterControllerTest extends TestCase
 
         $characterMock     = $this->createMock(CharacterInterface::class);
         $characterRepoMock = $this->createMock(CharacterRepositoryInterface::class);
-        $characterRepoMock->expects($this->once())->method('getByName')->with('a_name')->willReturn(false);
+        $characterRepoMock->expects($this->once())->method('getByName')->with('a_name')->willReturn(null);
         $characterRepoMock->expects($this->once())->method('create')->with('a_name')->willReturn($characterMock);
 
         $request = Request::create('', 'POST', ['name' => 'a_name']);

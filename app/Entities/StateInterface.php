@@ -30,7 +30,6 @@ interface StateInterface
 
     /**
      * @return array|null
-     * TODO refactor to : ?array after php 7.1
      */
-    public function getOptions();
+    public function getOptions(): ?array;
 }

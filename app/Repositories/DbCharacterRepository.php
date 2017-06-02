@@ -17,7 +17,7 @@ class DbCharacterRepository implements CharacterRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function getByName(string $name)
+    public function getByName(string $name): ?CharacterInterface
     {
         $character = CharacterModel::query()->where('name', $name)->first();
         if ($character) {

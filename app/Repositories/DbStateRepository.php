@@ -17,7 +17,7 @@ class DbStateRepository implements StateRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function getByTitle(string $title)
+    public function getByTitle(string $title): ?StateInterface
     {
         $model = StateModel::query()->where('title', $title)->first();
         if ($model) {
@@ -30,7 +30,7 @@ class DbStateRepository implements StateRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function getById(int $id)
+    public function getById(int $id): ?StateInterface
     {
         $model = StateModel::query()->where('id', $id)->first();
         if ($model) {

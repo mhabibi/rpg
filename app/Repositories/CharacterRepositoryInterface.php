@@ -15,9 +15,8 @@ interface CharacterRepositoryInterface
      * @param string $name
      *
      * @return CharacterInterface|null
-     * TODO refactor after php 7.1 to getByName(string $name): ?CharacterInterface
      */
-    public function getByName(string $name);
+    public function getByName(string $name): ?CharacterInterface;
 
     /**
      * @param string $name

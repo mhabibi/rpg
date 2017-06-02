@@ -25,9 +25,8 @@ interface CharacterInterface
 
     /**
      * @return StateInterface
-     * TODO refactor after php 7.1 to getState(): ?StateInterface;
      */
-    public function getState();
+    public function getState(): ?StateInterface;
 
     /**
      * @param StateInterface $state

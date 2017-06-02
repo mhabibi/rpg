@@ -51,7 +51,7 @@ Other response codes:
 - 400 selected id is wrong
 
 # Requirements
-- PHP >= 7
+- PHP >= 7.1
 - OpenSSL PHP Extension
 - PDO PHP Extension
 - Mbstring PHP Extension

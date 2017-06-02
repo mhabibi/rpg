@@ -3,3 +3,4 @@
 /vendor/
 /.idea
 .env
+database/database.sqlite

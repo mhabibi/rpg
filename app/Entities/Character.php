@@ -70,7 +70,7 @@ class Character implements CharacterInterface
     /**
      * {@inheritdoc}
      */
-    public function getState()
+    public function getState(): ?StateInterface
     {
         return $this->state;
     }

@@ -30,7 +30,7 @@ class Character extends InteractiveAbstract implements InteractiveCharacterInter
      * @return CharacterInterface|null
      * @throws \Exception
      */
-    public function get()
+    public function get(): ?CharacterInterface
     {
         if (!$this->output) {
             throw new \Exception('Output dependency is not set');

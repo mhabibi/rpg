@@ -13,9 +13,8 @@ interface InteractiveCharacterInterface
 {
     /**
      * @return CharacterInterface|null
-     * TODO refactor after php 7.1 tp get(): ?CharacterInterface
      */
-    public function get();
+    public function get(): ?CharacterInterface;
 
     /**
      * @param StyleInterface $output

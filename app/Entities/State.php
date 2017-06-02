@@ -86,7 +86,7 @@ class State implements StateInterface
     /**
      * {@inheritdoc}
      */
-    public function getOptions()
+    public function getOptions(): ?array
     {
         return $this->options;
     }

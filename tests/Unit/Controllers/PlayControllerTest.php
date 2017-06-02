@@ -110,9 +110,11 @@ class PlayControllerTest extends TestCase
 
     public function testSelectedOptionNotExist()
     {
+	$characterMock = $this->createMock(CharacterInterface::class);
+
         $gameControllerMock = $this->createMock(ControllerInterface::class);
         $characterRepoMock  = $this->createMock(CharacterRepositoryInterface::class);
-        $characterRepoMock->expects($this->once())->method('getByName')->with('a_name')->willReturn(true);
+        $characterRepoMock->expects($this->once())->method('getByName')->with('a_name')->willReturn($characterMock);
         $request       = Request::create('', 'PUT', ['id' => 1]);
         $stateRepoMock = $this->createMock(StateRepositoryInterface::class);
         $stateRepoMock->expects($this->once())->method('getById')->with(1)->willReturn(null);

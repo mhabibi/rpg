@@ -14,17 +14,15 @@ interface StateRepositoryInterface
      * @param $title
      *
      * @return StateInterface|null
-     * TODO refactor after php 7.1 to getByTitle(string $title): ?StateInterface
      */
-    public function getByTitle(string $title);
+    public function getByTitle(string $title): ?StateInterface;
 
     /**
      * @param int $id
      *
      * @return StateInterface|null
-     * TODO refactor after php 7.1 to getById(int $id): ?StateInterface
      */
-    public function getById(int $id);
+    public function getById(int $id): ?StateInterface;
 
     /**
      * @return StateInterface

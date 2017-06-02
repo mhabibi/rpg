@@ -35,13 +35,15 @@ class CharacterTest extends TestCase
 
     public function testEnterNameThatAlreadyExist()
     {
+	$characterMock = $this->createMock(CharacterInterface::class);	
+
         $outputMock = $this->createMock(StyleInterface::class);
         $outputMock->expects($this->once())->method('confirm')->willReturn(false);
         $outputMock->expects($this->once())->method('ask')->willReturn('a_name');
         $outputMock->expects($this->any())->method('text');
 
         $characterRepositoryMock = $this->createMock(CharacterRepositoryInterface::class);
-        $characterRepositoryMock->expects($this->once())->method('getByName')->with('a_name')->willReturn('whatever');
+        $characterRepositoryMock->expects($this->once())->method('getByName')->with('a_name')->willReturn($characterMock);
 
         $characterInteractive = new Character($characterRepositoryMock);
         $characterInteractive->setOutput($outputMock);
